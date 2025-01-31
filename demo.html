@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Optional styling for page content hiding */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Sidebar -->
+  <div class="flex">
+    <div class="w-64 bg-blue-800 text-white h-screen p-5">
+      <h2 class="text-2xl font-semibold mb-6">Dashboard</h2>
+      <ul>
+        <li class="mb-4 hover:bg-blue-700 p-2 rounded">
+          <a href="#" class="block" onclick="showPage('home')">Home</a>
+        </li>
+        <li class="mb-4 hover:bg-blue-700 p-2 rounded">
+          <a href="http://127.0.0.1:3000/analytic.html" class="block" onclick="showPage('analytics')">Analytics</a>
+        </li>
+        <li class="mb-4 hover:bg-blue-700 p-2 rounded">
+          <a href="http://127.0.0.1:3000/project.html" class="block" onclick="showPage('projects')">Projects</a>
+        </li>
+        <li class="mb-4 hover:bg-blue-700 p-2 rounded">
+          <a href="http://127.0.0.1:3000/setting.html" class="block" onclick="showPage('settings')">Settings</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-8">
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-semibold">Dashboard Overview</h1>
+        <div class="flex items-center space-x-4">
+          <div class="bg-gray-200 rounded-full p-2">
+            <img src="pic-1.jpg"class="rounded-full">
+          </div>
+          <button class="text-blue-800 font-semibold">Log Out</button>
+        </div>
+      </div>
+
+      <!-- Home Page Content -->
+      <div id="home" class="page-content">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-3">Total Users</h3>
+            <p class="text-3xl font-bold">1,250</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-3">Active Projects</h3>
+            <p class="text-3xl font-bold">8</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-3">Tasks Pending</h3>
+            <p class="text-3xl font-bold">15</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-3">Revenue</h3>
+            <p class="text-3xl font-bold">$15,230</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Page Content -->
+      <div id="analytics" class="page-content hidden">
+        <h2 class="text-2xl font-semibold mb-4">Analytics Overview</h2>
+        <p>Analytics data will be displayed here. This section can show various charts, reports, and metrics related to user activities, sales, etc.</p>
+      </div>
+
+      <!-- Projects Page Content -->
+      <div id="projects" class="page-content hidden">
+        <h2 class="text-2xl font-semibold mb-4">Projects Overview</h2>
+        <p>This section will display ongoing and completed projects. Each project can be detailed with progress, tasks, and other necessary info.</p>
+      </div>
+
+      <!-- Settings Page Content -->
+      <div id="settings" class="page-content hidden">
+        <h2 class="text-2xl font-semibold mb-4">Settings</h2>
+        <p>Manage settings like account preferences, notifications, security options, etc. This page can also contain forms to update user preferences.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Function to show and hide pages
+    function showPage(page) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page-content');
+      pages.forEach(p => p.classList.add('hidden'));
+
+      // Show the selected page
+      document.getElementById(page).classList.remove('hidden');
+    }
+
+    // Initially show the home page
+    showPage('home');
+  </script>
+
+</body>
+</html>
